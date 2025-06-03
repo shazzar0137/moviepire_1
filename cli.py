@@ -100,7 +100,7 @@ def list_reviews():
     session.close()
 
 @cli.command()
-@click.argument("title")
+@click.option("--title", prompt="Movie Title")
 @click.option("--rating", type=float, default=None)
 def mark_watched(title, rating):
     session = Session()
@@ -116,7 +116,7 @@ def mark_watched(title, rating):
     session.close()
 
 @cli.command()
-@click.argument("title")
+@click.option("--title", prompt="Movie Title")
 @click.option("--text", prompt="Review Text")
 @click.option("--rating", type=float, prompt="Rating (1-5)")
 @click.option("--user_id", prompt="User ID", type=int)
